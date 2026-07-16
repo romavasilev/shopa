@@ -543,8 +543,10 @@ export default function AmiClinicPage() {
           style={{
             position: 'absolute',
             inset: 0,
+            // Long, multi-stop ramp: a short dark→light fade banded visibly.
+            // Final stop matches the Services background exactly, so there's no seam.
             background:
-              'linear-gradient(180deg, rgba(36,26,19,0.32) 0%, rgba(36,26,19,0.08) 40%, rgba(58,43,30,0.32) 76%, rgba(238,235,230,0.97) 100%)',
+              'linear-gradient(180deg, rgba(36,26,19,0.38) 0%, rgba(36,26,19,0.10) 34%, rgba(48,35,25,0.16) 50%, rgba(74,56,40,0.30) 64%, rgba(116,95,72,0.48) 76%, rgba(170,152,128,0.68) 85%, rgba(214,205,192,0.86) 93%, rgba(238,235,230,1) 100%)',
           }}
         />
         <HeroSpheres />
