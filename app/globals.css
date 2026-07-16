@@ -100,7 +100,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    overflow-x: hidden;
+    /* No overflow-x here: clipping on <body> makes position: fixed detach and
+       scroll away on iOS Safari. Sections clip their own decorative overflow. */
   }
   ::selection {
     background: oklch(0.78 0.16 211 / 0.3);

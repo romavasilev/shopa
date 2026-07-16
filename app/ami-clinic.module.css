@@ -12,7 +12,9 @@
   background: var(--bg);
   letter-spacing: 0.2px;
   -webkit-font-smoothing: antialiased;
-  overflow-x: clip;
+  /* NB: no overflow-x here — clipping on <body> breaks position: fixed on
+     iOS Safari (the header detaches and scrolls). Sections clip their own
+     decorative overflow instead. */
 }
 
 .root a {

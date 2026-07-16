@@ -375,7 +375,7 @@ function ServiceCard({
             <div
               style={{
                 fontFamily: SERIF,
-                fontSize: 46,
+                fontSize: 'clamp(28px, 7.5vw, 46px)',
                 color: C.text,
                 marginTop: 14,
               }}
@@ -466,7 +466,7 @@ export default function AmiClinicPage() {
             src={`${BASE}/ami-clinic/logo.png`}
             alt="ÀМИ — клиника эстетической медицины"
             style={{
-              height: 50,
+              height: 'clamp(36px, 10vw, 50px)',
               display: 'block',
               filter:
                 'brightness(0.55) contrast(1.25) drop-shadow(0 1px 0 rgba(255,255,255,0.4))',
@@ -497,12 +497,13 @@ export default function AmiClinicPage() {
           href="#booking"
           className={styles.gold}
           style={{
-            fontSize: 12,
-            letterSpacing: 3.5,
+            fontSize: 'clamp(10px, 2.7vw, 12px)',
+            letterSpacing: 'clamp(1.5px, 0.9vw, 3.5px)',
             textTransform: 'uppercase',
             display: 'flex',
             alignItems: 'center',
             gap: 12,
+            flexShrink: 0,
           }}
         >
           Записаться
@@ -561,11 +562,11 @@ export default function AmiClinicPage() {
           <div
             className={styles.riseIn}
             style={{
-              fontSize: 16,
-              letterSpacing: 7,
+              fontSize: 'clamp(10px, 2.8vw, 16px)',
+              letterSpacing: 'clamp(2.5px, 1.3vw, 7px)',
               textTransform: 'uppercase',
               color: C.goldLight,
-              marginBottom: 20,
+              marginBottom: 'clamp(12px, 3vw, 20px)',
               animationDelay: '.1s',
             }}
           >
@@ -618,10 +619,10 @@ export default function AmiClinicPage() {
           <div
             className={styles.riseIn}
             style={{
-              fontSize: 17,
-              letterSpacing: 3,
+              fontSize: 'clamp(13px, 3.3vw, 17px)',
+              letterSpacing: 'clamp(1.5px, 0.8vw, 3px)',
               color: '#D9CDBC',
-              marginTop: 36,
+              marginTop: 'clamp(22px, 5vw, 36px)',
               animationDelay: '.45s',
             }}
           >
@@ -634,9 +635,9 @@ export default function AmiClinicPage() {
               style={{
                 display: 'inline-block',
                 border: `1px solid ${C.goldLight}`,
-                padding: '19px 72px',
-                fontSize: 14,
-                letterSpacing: 4,
+                padding: 'clamp(15px, 4vw, 19px) clamp(40px, 13vw, 72px)',
+                fontSize: 'clamp(12px, 3.1vw, 14px)',
+                letterSpacing: 'clamp(2px, 1vw, 4px)',
                 textTransform: 'uppercase',
                 color: '#EDE9E3',
                 background: 'rgba(36,26,19,0.25)',
@@ -742,7 +743,7 @@ export default function AmiClinicPage() {
             padding: 'clamp(64px, 8vw, 100px) clamp(20px, 4vw, 56px) 48px',
           }}
         >
-          <h2 style={{ fontFamily: SERIF, fontSize: 'clamp(48px, 5vw, 84px)', margin: 0, color: C.text }}>
+          <h2 style={{ fontFamily: SERIF, fontSize: 'clamp(34px, 8vw, 84px)', margin: 0, color: C.text }}>
             Услуги
           </h2>
           <div style={labelUpper}>/ 01 — Направления</div>
@@ -797,8 +798,8 @@ export default function AmiClinicPage() {
           <h2
             style={{
               fontFamily: SERIF,
-              fontSize: 'clamp(48px, 5.4vw, 92px)',
-              margin: '0 0 90px',
+              fontSize: 'clamp(32px, 8vw, 92px)',
+              margin: '0 0 clamp(44px, 9vw, 90px)',
               color: C.text,
             }}
           >
@@ -817,7 +818,7 @@ export default function AmiClinicPage() {
             />
             <div style={{ display: 'grid', gap: 64 }}>
               {VISIT_STEPS.map((step) => (
-                <div key={step.n} style={{ display: 'flex', gap: 46 }}>
+                <div key={step.n} style={{ display: 'flex', gap: 'clamp(20px, 6vw, 46px)' }}>
                   <div
                     style={{
                       width: 21,
@@ -830,8 +831,17 @@ export default function AmiClinicPage() {
                     }}
                   />
                   <div>
-                    <div style={{ fontFamily: SERIF, fontSize: 20, color: C.muted }}>{step.n}</div>
-                    <div style={{ fontFamily: SERIF, fontSize: 40, color: C.text, marginTop: 6 }}>
+                    <div style={{ fontFamily: SERIF, fontSize: 'clamp(16px, 4vw, 20px)', color: C.muted }}>
+                      {step.n}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: SERIF,
+                        fontSize: 'clamp(26px, 7vw, 40px)',
+                        color: C.text,
+                        marginTop: 6,
+                      }}
+                    >
                       {step.t}
                     </div>
                     <div
@@ -938,7 +948,9 @@ export default function AmiClinicPage() {
                     Фото — {member.name}
                   </div>
                   <div>
-                    <div style={{ fontFamily: SERIF, fontSize: 34, color: C.text }}>{member.name}</div>
+                    <div style={{ fontFamily: SERIF, fontSize: 'clamp(24px, 6.4vw, 34px)', color: C.text }}>
+                      {member.name}
+                    </div>
                     <div
                       style={{
                         fontSize: 12,
@@ -998,7 +1010,7 @@ export default function AmiClinicPage() {
               style={{
                 fontFamily: SERIF,
                 fontWeight: 300,
-                fontSize: 'clamp(56px, 6.4vw, 110px)',
+                fontSize: 'clamp(38px, 9vw, 110px)',
                 lineHeight: 1.04,
                 margin: 0,
                 color: C.text,
@@ -1060,7 +1072,7 @@ export default function AmiClinicPage() {
             <h2
               style={{
                 fontFamily: SERIF,
-                fontSize: 'clamp(56px, 6.4vw, 110px)',
+                fontSize: 'clamp(38px, 9vw, 110px)',
                 margin: 0,
                 color: C.text,
               }}
@@ -1082,7 +1094,9 @@ export default function AmiClinicPage() {
               { title: 'Массаж', rows: PRICE_MASSAGE },
             ].map((col) => (
               <div key={col.title}>
-                <div style={{ fontFamily: SERIF, fontSize: 42, color: C.text }}>{col.title}</div>
+                <div style={{ fontFamily: SERIF, fontSize: 'clamp(28px, 7vw, 42px)', color: C.text }}>
+                  {col.title}
+                </div>
                 <div style={{ display: 'grid', marginTop: 26 }}>
                   {col.rows.map(([name, price]) => (
                     <div
@@ -1094,7 +1108,7 @@ export default function AmiClinicPage() {
                         padding: '15px 0',
                         borderBottom: '1px solid rgba(44,33,25,0.28)',
                         fontWeight: 300,
-                        fontSize: 17,
+                        fontSize: 'clamp(14px, 3.7vw, 17px)',
                       }}
                     >
                       <span>{name}</span>
@@ -1123,8 +1137,8 @@ export default function AmiClinicPage() {
             <h2
               style={{
                 fontFamily: SERIF,
-                fontSize: 'clamp(56px, 5.6vw, 96px)',
-                margin: '0 0 64px',
+                fontSize: 'clamp(38px, 9vw, 96px)',
+                margin: '0 0 clamp(36px, 8vw, 64px)',
                 color: C.text,
               }}
             >
