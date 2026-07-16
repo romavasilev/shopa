@@ -22,6 +22,10 @@ const C = {
 const SERIF = 'var(--font-ami-serif), serif'
 const DISPLAY = 'var(--font-ami-display), cursive'
 
+// On GitHub Pages the site is served from a subpath. next/font and routes get the
+// prefix automatically, but raw <img>/<video>/CSS url() paths do not.
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
 const NAV_LINKS = [
   { href: '#services', label: 'Услуги' },
   { href: '#visit', label: 'Визит' },
@@ -34,25 +38,25 @@ const SERVICES = [
   {
     num: '01',
     title: 'Косметология',
-    img: '/ami-clinic/service-cosmetology.jpg',
+    img: `${BASE}/ami-clinic/service-cosmetology.jpg`,
     desc: 'Эстетические программы ухода за кожей лица: чистки, пилинги, аппаратные методики. Индивидуальный подбор протокола под задачи вашей кожи.',
   },
   {
     num: '02',
     title: 'Инъекции',
-    img: '/ami-clinic/service-injections.jpg',
+    img: `${BASE}/ami-clinic/service-injections.jpg`,
     desc: 'Инъекционные методики для естественного омоложения, коррекции и поддержания вашей красоты. Только сертифицированные препараты и врачи с медицинским образованием.',
   },
   {
     num: '03',
     title: 'Массаж',
-    img: '/ami-clinic/service-massage.jpg',
+    img: `${BASE}/ami-clinic/service-massage.jpg`,
     desc: 'Классические и авторские техники массажа лица и тела. Глубокое расслабление, лимфодренаж и восстановление тонуса в атмосфере полного покоя.',
   },
   {
     num: '04',
     title: 'Программы',
-    img: '/ami-clinic/service-programs.jpg',
+    img: `${BASE}/ami-clinic/service-programs.jpg`,
     desc: 'Комплексные программы красоты и здоровья, составленные из процедур клиники. Курсовой подход для устойчивого и долговременного результата.',
   },
 ]
@@ -459,7 +463,7 @@ export default function AmiClinicPage() {
         <a href="#hero" style={{ display: 'flex', alignItems: 'center' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/ami-clinic/logo.png"
+            src={`${BASE}/ami-clinic/logo.png`}
             alt="ÀМИ — клиника эстетической медицины"
             style={{
               height: 50,
@@ -533,7 +537,7 @@ export default function AmiClinicPage() {
             filter: 'grayscale(0.55) brightness(1.15) contrast(0.95)',
           }}
         >
-          <source src="/ami-clinic/hero.mp4" type="video/mp4" />
+          <source src={`${BASE}/ami-clinic/hero.mp4`} type="video/mp4" />
         </video>
         <div
           style={{
@@ -990,7 +994,7 @@ export default function AmiClinicPage() {
             <div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/ami-clinic/service-programs.jpg"
+                src={`${BASE}/ami-clinic/service-programs.jpg`}
                 alt="Текстура крема на камне"
                 style={{
                   width: '100%',
@@ -1236,7 +1240,7 @@ export default function AmiClinicPage() {
           <div style={{ width: 66, height: 66, borderRadius: '50%', overflow: 'hidden', flexShrink: 0 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/ami-clinic/logo-footer.jpg"
+              src={`${BASE}/ami-clinic/logo-footer.jpg`}
               alt="ÀМИ"
               style={{ width: '100%', height: '100%', display: 'block', transform: 'scale(1.22)', objectFit: 'cover' }}
             />
