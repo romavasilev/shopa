@@ -646,71 +646,88 @@ export default function AmiClinicPage() {
           </div>
         </div>
 
+        {/* Side labels: the wrapper owns position/transform so the riseIn
+            animation (which sets its own transform) can't clobber centering. */}
         {!isMobile && (
           <>
             <div
-              className={styles.riseIn}
               style={{
                 position: 'absolute',
                 left: 'clamp(20px, 3vw, 46px)',
                 top: '50%',
                 transform: 'translateY(-50%) rotate(180deg)',
                 writingMode: 'vertical-rl',
-                fontSize: 11,
-                letterSpacing: 4,
-                textTransform: 'uppercase',
-                color: C.goldLight,
                 opacity: 0.5,
-                animationDelay: '.8s',
               }}
             >
-              Эстетика · Здоровье · Покой
+              <div
+                className={styles.riseIn}
+                style={{
+                  fontSize: 11,
+                  letterSpacing: 4,
+                  textTransform: 'uppercase',
+                  color: C.goldLight,
+                  animationDelay: '.8s',
+                }}
+              >
+                Эстетика · Здоровье · Покой
+              </div>
             </div>
             <div
-              className={styles.riseIn}
               style={{
                 position: 'absolute',
                 right: 'clamp(20px, 3vw, 46px)',
                 top: '50%',
                 transform: 'translateY(-50%)',
                 writingMode: 'vertical-rl',
-                fontSize: 11,
-                letterSpacing: 4,
-                textTransform: 'uppercase',
-                color: C.goldLight,
                 opacity: 0.5,
-                animationDelay: '.8s',
               }}
             >
-              Москва · Пречистенка 27/29
+              <div
+                className={styles.riseIn}
+                style={{
+                  fontSize: 11,
+                  letterSpacing: 4,
+                  textTransform: 'uppercase',
+                  color: C.goldLight,
+                  animationDelay: '.8s',
+                }}
+              >
+                Москва · Пречистенка 27/29
+              </div>
             </div>
           </>
         )}
 
-        <a
-          href="#services"
-          className={styles.riseIn}
+        <div
           style={{
             position: 'absolute',
             bottom: 'clamp(22px, 3vw, 40px)',
             left: '50%',
             transform: 'translateX(-50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 10,
-            fontSize: 10,
-            letterSpacing: 3,
-            textTransform: 'uppercase',
-            color: '#5A4A3C',
-            animationDelay: '1s',
           }}
         >
-          Листайте вниз
-          <span className={styles.scrollLine}>
-            <span className={styles.scrollDot} />
-          </span>
-        </a>
+          <a
+            href="#services"
+            className={styles.riseIn}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 10,
+              fontSize: 10,
+              letterSpacing: 3,
+              textTransform: 'uppercase',
+              color: '#5A4A3C',
+              animationDelay: '1s',
+            }}
+          >
+            Листайте вниз
+            <span className={styles.scrollLine}>
+              <span className={styles.scrollDot} />
+            </span>
+          </a>
+        </div>
       </section>
 
       {/* ---------- Services ---------- */}
