@@ -119,6 +119,57 @@
   border-bottom-color: var(--gold);
 }
 
+/* ---- Hero fade ----
+   Alpha follows a smoothstep curve (t²(3−2t)), not a linear ramp: its slope is
+   zero at both ends, so the fade dissolves into the video and into the Services
+   background without the Mach band a linear gradient shows at its endpoints. */
+.heroFade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(238, 235, 230, 0) 58%,
+      rgba(238, 235, 230, 0.014) 61%,
+      rgba(238, 235, 230, 0.055) 64%,
+      rgba(238, 235, 230, 0.117) 67%,
+      rgba(238, 235, 230, 0.196) 70%,
+      rgba(238, 235, 230, 0.287) 73%,
+      rgba(238, 235, 230, 0.385) 76%,
+      rgba(238, 235, 230, 0.5) 79%,
+      rgba(238, 235, 230, 0.615) 82%,
+      rgba(238, 235, 230, 0.713) 85%,
+      rgba(238, 235, 230, 0.804) 88%,
+      rgba(238, 235, 230, 0.883) 91%,
+      rgba(238, 235, 230, 0.945) 94%,
+      rgba(238, 235, 230, 0.986) 97%,
+      rgba(238, 235, 230, 1) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(36, 26, 19, 0.5) 0%,
+      rgba(36, 26, 19, 0.44) 10%,
+      rgba(36, 26, 19, 0.3) 22%,
+      rgba(36, 26, 19, 0.16) 34%,
+      rgba(36, 26, 19, 0.06) 46%,
+      rgba(36, 26, 19, 0.015) 54%,
+      rgba(36, 26, 19, 0) 60%
+    );
+}
+
+/* Dither: breaks up the residual banding a smooth gradient still shows on
+   8-bit panels (very visible on phones). Kept far below conscious threshold. */
+.heroNoise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
 /* ---- Scroll cue ---- */
 .scrollLine {
   position: relative;
